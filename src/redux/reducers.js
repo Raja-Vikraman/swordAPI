@@ -1,7 +1,7 @@
 import {CHECK_LOGIN, VIEW_USER, LIST_USER} from './actions.js'
 
 let initialState = {
-    authenticationResponse: {isAuthenticated:"N"},
+    authenticationResponse: {isAuthenticated:""},
     allUser:[],
     userInfo:{}
 }

@@ -12,12 +12,16 @@ export function checkLogin(payload) {
 }
 
 export function checkLoginMiddleWare(postData) {
+    var formdata = new FormData();
+    formdata.append('data', JSON.stringify(postData))
     return (dispatch) => {
         axios({
             method:'post',
             url:appConfig.appURL.loginCheck,
-            data: postData,
-            // headers: {'Content-Type': 'multipart/form-data'}
+            data: formdata,
+            headers: {'Content-Type': 'multipart/form-data'}
+            // headers: {'Access-Control-Allow-Credentials':true}
+            // headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
         .then(res => {
             dispatch(checkLogin(res.data.responseData))
